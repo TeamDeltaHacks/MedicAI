@@ -56,10 +56,10 @@
 	var width = $(window).width();
 		$(window).resize(function() {
 			if (width > 992 && $(window).width() < 992) {
-				location.reload();
+				// location.reload();
 			}
 			else if (width < 992 && $(window).width() > 992) {
-				location.reload();
+				// location.reload();
 			}
 	})
 
