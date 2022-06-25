@@ -8,20 +8,20 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def index():
-    return render_template('index.html')
+	return render_template('index.html')
 
-@app.route('/author', methods=['GET'])
-def author():
-    return render_template('author.html')
+@app.route('/records', methods=['GET'])
+def view_records():
+	return render_template('records.html')
 
-@app.route('/create', methods=['GET'])
-def create():
-    return render_template('create.html')
+@app.route('/records/<record>', methods=['GET'])
+def records():
+	return render_template('record.html', record=record)
 
-@app.route('/details', methods=['GET'])
-def details():
-    return render_template('details.html')
-
-@app.route('/explore', methods=['GET'])
-def explore():
-    return render_template('explore.html')
+@app.route('/add', methods=['GET', 'POST'])
+def add():
+	if(request.method == 'GET'):
+		return render_template('add.html')
+	else:
+		json = request.json
+		return '{"type":"success","response":"result"}'
