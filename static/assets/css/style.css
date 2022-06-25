@@ -41,6 +41,11 @@ figure, header, nav, section, article, aside, footer, figcaption {
 	outline: 0;
 }
 
+.center {
+	margin-left: 50%;
+	transform: translate(-50%, 0);
+}
+
 .clearfix:after {
 	content: ".";
 	display: block;
