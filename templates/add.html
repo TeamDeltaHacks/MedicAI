@@ -120,91 +120,39 @@ https://templatemo.com/tm-577-liberty-market
 					<div class="col-lg-12">
 						<div class="section-heading">
 							<div class="line-dec"></div>
-							<h2>Apply For <em>Your Item</em> Here.</h2>
+							<h2>Add a <em>New Record</em> Here.</h2>
 						</div>
 					</div>
 					<div class="col-lg-12">
-						<form id="contact" action="" method="post">
+						<form id="contact" action="" method="post" onsubmit="event.preventDefault();">
+							<div class="row">
+								<div class="col-lg-6">
+									<fieldset>
+										<label for="patient">Patient Name</label>
+										<input type="text" name="patient" id="patient-input" placeholder="Patient Name" autocomplete="on" required>
+									</fieldset>
+								</div>
+								<div class="col-lg-6">
+									<fieldset>
+										<label for="date">Date</label>
+										<input type="date" name="date" id="date-input" placeholder="Date" autocomplete="on" required>
+									</fieldset>
+								</div>
+							</div>
 							<div class="row">
 								<div class="col-lg-4">
 									<fieldset>
-										<label for="title">Item Title</label>
-										<input type="title" name="title" id="title" placeholder="Ex. Lyon King" autocomplete="on" required>
-									</fieldset>
-								</div>
-								<div class="col-lg-4">
-									<fieldset>
-										<label for="description">Description For Item</label>
-										<input type="description" name="description" id="description" placeholder="Give us your idea" autocomplete="on" required>
-									</fieldset>
-								</div>
-								<div class="col-lg-4">
-									<fieldset>
-										<label for="username">Your Username</label>
-										<input type="username" name="username" id="username" placeholder="Ex. @alansmithee" autocomplete="on" required>
-									</fieldset>
-								</div>
-								<div class="col-lg-6">
-									<fieldset>
-										<label for="price">Price Of Item</label>
-										<input type="price" name="price" id="price" placeholder="Price depends on quality. Ex. 0.06 ETH" autocomplete="on" required>
-									</fieldset>
-								</div>
-								<div class="col-lg-6">
-									<fieldset>
-										<label for="royalities">Royalties</label>
-										<input type="royalities" name="royalities" id="royalities" placeholder="Common royalties 1-25%" autocomplete="on" required>
-									</fieldset>
-								</div>
-								<div class="col-lg-4">
-									<fieldset>
-										<label for="file">Your File</label>
-										<input type="file" id="file" name="myfiles[]" multiple />
+										<label for="file">Report</label>
+										<input type="file" id="file" name="report" />
 									</fieldset>
 								</div>
 								<div class="col-lg-8">
 									<fieldset>
-										<button type="submit" id="form-submit" class="orange-button">Submit Your Applying</button>
+										<button id="form-submit" class="orange-button">Add Record</button>
 									</fieldset>
 								</div>
 							</div>
 						</form>
-					</div>
-					<div class="col-lg-12">
-						<div class="section-heading">
-							<div class="line-dec"></div>
-							<h2>This Is <em>Your Item</em> Preview.</h2>
-						</div>
-					</div>
-					<div class="col-lg-7">
-						<div class="left-image">
-							<img src="/static/assets/images/create-yours.jpg" alt="" style="border-radius: 20px;">
-						</div>
-					</div>
-					<div class="col-lg-5 align-self-center">
-						<h4>Dolores Haze Westworld Eye</h4>
-						<span class="author">
-							<img src="/static/assets/images/author-02.jpg" alt="" style="max-width: 50px; border-radius: 50%;">
-							<h6>Kataleya Smithee<br><a href="#">@kataleey</a></h6>
-						</span>
-						<p>Lorem ipsum dolor sit amet, consectetu dipiscingei elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						<div class="row">
-							<div class="col-3">
-								<span class="bid">
-									Current Bid<br><strong>0.06 ETH</strong><br><em>($8055,35)</em>
-								</span>
-							</div>
-							<div class="col-4">
-								<span class="owner">
-									Owner<br><strong>Alan Smithee</strong><br><em>(@asmithee)</em>
-								</span>
-							</div>
-							<div class="col-5">
-								<span class="ends">
-									Ends In<br><strong>3D 05H 20M 58S</strong><br><em>(January 22nd, 2021)</em>
-								</span>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
