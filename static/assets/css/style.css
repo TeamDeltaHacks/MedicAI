@@ -50,6 +50,12 @@ figure, header, nav, section, article, aside, footer, figcaption {
     filter: invert(1);
 }
 
+#text-error {
+	color: #ff0000;
+	margin-top: 20px;
+	margin-bottom: 0;
+}
+
 .clearfix:after {
 	content: ".";
 	display: block;
