@@ -88,8 +88,8 @@ https://templatemo.com/tm-577-liberty-market
 								<li><a href="/">Home</a></li>
 								<li><a href="/records">View Records</a></li>
 								<li><a href="/add">Add Record</a></li>
-								<li><a href="/register" id="nav-sign-up">Sign Up</a></li>
-								<li><a href="/login" class="active" id="nav-sign-in">Sign In</a></li>
+								<li id="nav-sign-up"><a href="/register">Sign Up</a></li>
+								<li id="nav-sign-in"><a href="/login" class="active">Sign In</a></li>
 							</ul>	 
 							<a class='menu-trigger'>
 								<span>Menu</span>
@@ -230,6 +230,30 @@ https://templatemo.com/tm-577-liberty-market
 			</div>
 		</footer>
 
+		<script>
+
+			const emailInput = document.getElementById("input-email");
+			const passwordInput = document.getElementById("input-password");
+			const loginButton = document.getElementById("btn-login");
+			const textError = document.getElementById("text-error");
+
+			const login = (email, password) => {
+				return new Promise(async (resolve, reject) => {
+					auth.signInWithEmailAndPassword(email, password).then((userCredential) => {
+						resolve(userCredential);
+					}).catch((err) => {
+						reject(err);
+					});
+				})
+			}
+
+			loginButton.onclick = async () => {
+				credentials = await login(emailInput.value, passwordInput.value).catch((err) => {
+					textError.innerHTML = err.message;
+				});
+			}
+		</script>
+
 		<!-- Scripts -->
 		<!-- Bootstrap core JavaScript -->
 		<script src="/static/vendor/jquery/jquery.min.js"></script>
@@ -241,5 +265,7 @@ https://templatemo.com/tm-577-liberty-market
 		<script src="/static/assets/js/tabs.js"></script>
 		<script src="/static/assets/js/popup.js"></script>
 		<script src="/static/assets/js/custom.js"></script>
+
+		<script src="/static/assets/js/auth.js"></script>
 	</body>
 </html>
