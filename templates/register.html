@@ -266,6 +266,58 @@ https://templatemo.com/tm-577-liberty-market
 		<script src="/static/assets/js/popup.js"></script>
 		<script src="/static/assets/js/custom.js"></script>
 
-		<script src="/static/assets/js/auth.js"></script>
+		<script>
+			const auth = firebase.auth();
+			var credentials;
+			var resolvedCredentials = false;
+			var windowLoaded = false;
+			auth.onAuthStateChanged(function(user) {
+				credentials = user;
+				if(credentials != null) {
+					window.location.href = "/records";
+				} else {
+					resolvedCredentials = true;
+					if(windowLoaded && resolvedCredentials) {
+						$('#js-preloader').addClass('loaded');
+					
+						if($('.cover').length){
+							$('.cover').parallax({
+								imageSrc: $('.cover').data('image'),
+								zIndex: '1'
+							});
+						}
+
+						$("#preloader").animate({
+							'opacity': '0'
+						}, 600, function(){
+							setTimeout(function(){
+								$("#preloader").css("visibility", "hidden").fadeOut();
+							}, 300);
+						});
+					}
+				}
+			});
+			$(window).on('load', function () {
+				windowLoaded = true;
+				if(windowLoaded && resolvedCredentials) {
+					$('#js-preloader').addClass('loaded');
+					
+					if($('.cover').length){
+						$('.cover').parallax({
+							imageSrc: $('.cover').data('image'),
+							zIndex: '1'
+						});
+					}
+
+					$("#preloader").animate({
+						'opacity': '0'
+					}, 600, function(){
+						setTimeout(function(){
+							$("#preloader").css("visibility", "hidden").fadeOut();
+						}, 300);
+					});
+				}
+			});
+		</script>
 	</body>
 </html>

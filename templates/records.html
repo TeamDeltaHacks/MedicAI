@@ -574,6 +574,42 @@ https://templatemo.com/tm-577-liberty-market
 			</div>
 		</footer>
 
+		<script>
+			const db = firebase.firestore();
+
+			let dbRef;
+			let dbUnsubscribe;
+
+			const authenticated = (user) => {
+				dbRef = db.collection("records");
+				dbUnsubscribe = dbRef
+					.where("uid", "==", user.uid)
+					.orderBy("createdAt")
+					.onSnapshot((snapshot) => {
+						// updateSnapshot(snapshot, "");
+						resolvedCredentials = true;
+						if(windowLoaded && resolvedCredentials) {
+							$('#js-preloader').addClass('loaded');
+							
+							if($('.cover').length){
+								$('.cover').parallax({
+									imageSrc: $('.cover').data('image'),
+									zIndex: '1'
+								});
+							}
+
+							$("#preloader").animate({
+								'opacity': '0'
+							}, 600, function(){
+								setTimeout(function(){
+									$("#preloader").css("visibility", "hidden").fadeOut();
+								}, 300);
+							});
+						}
+					});
+			}
+		</script>
+
 		<!-- Scripts -->
 		<!-- Bootstrap core JavaScript -->
 		<script src="/static/vendor/jquery/jquery.min.js"></script>
@@ -586,7 +622,44 @@ https://templatemo.com/tm-577-liberty-market
 		<script src="/static/assets/js/popup.js"></script>
 		<script src="/static/assets/js/custom.js"></script>
 
-		<script src="/static/assets/js/auth.js"></script>
+		<script>
+			const auth = firebase.auth();
+			var credentials;
+			var resolvedCredentials = false;
+			var windowLoaded = false;
+			auth.onAuthStateChanged(function(user) {
+				credentials = user;
+				if(credentials == null) {
+					window.location.href = "/login";
+				} else {
+					document.getElementById("nav-sign-in").remove();
+					document.getElementById("nav-sign-up").innerHTML = '<a href="javascript:auth.signOut();">Sign Out</a>';
+					// document.getElementById("records-title").innerHTML = "Records for " + credentials.email;
+					authenticated && authenticated(credentials);
+				}
+			});
+			$(window).on('load', function () {
+				windowLoaded = true;
+				if(windowLoaded && resolvedCredentials) {
+					$('#js-preloader').addClass('loaded');
+					
+					if($('.cover').length){
+						$('.cover').parallax({
+							imageSrc: $('.cover').data('image'),
+							zIndex: '1'
+						});
+					}
+
+					$("#preloader").animate({
+						'opacity': '0'
+					}, 600, function(){
+						setTimeout(function(){
+							$("#preloader").css("visibility", "hidden").fadeOut();
+						}, 300);
+					});
+				}
+			});
+		</script>
 
 	</body>
 </html>
