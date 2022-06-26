@@ -5,6 +5,9 @@ import pytesseract
 import numpy as np
 import urllib
 import json as JSON
+from joblib import dump, load
+
+model = load("LR.pkl")
 
 app = Flask(__name__)
 
