@@ -2,7 +2,7 @@
 
 Code for "Improving Clinical Efficiency and Reducing Medical Errors through NLP-enabled diagnosis of Health Conditions from Transcription Reports"
 
-Repo for research [paper](https://github.com/CMEONE/MedicAI/blob/main/static/paper.pdf) and [web app](https://devpost.com/software/medicai-r2hsvu).
+GitHub repository for [research paper](https://github.com/CMEONE/MedicAI/blob/main/static/paper.pdf) and [web application](https://devpost.com/software/medicai-r2hsvu).
 
 ## Dependencies
 You may need to use `pip install` to install the dependencies on each line of `requirements.txt` (for example, `pip install flask==1.1.2`). This list is not comprehensive and does not include many of the modules, which will need to be installed as errors arise with running (see below section).
