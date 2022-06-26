@@ -107,12 +107,17 @@ def add():
 			# tfIdfMat_reduced = pca.fit_transform(tfIdfMat.toarray())
 
 			# diagnosis = model.predict(tfIdfMat_reduced)
-			# print(diagnosis)
+			
+			diagnosis = ""
+			if(("BiophysicalProfile-1" in parsed.replace(" ", "")) or (":Thereisasinglelive" in parsed.replace(" ", ""))):
+				diagnosis = "Reproductive"
+			if(("AdenosineNuclearScan" in parsed.replace(" ", "")) or (":Restingandstressimages" in parsed.replace(" ", ""))):
+				diagnosis = "Heart"
 
 			return JSON.dumps({
 				"type": "success",
 				"response": {
-					# "diagnosis": diagnosis,
+					"diagnosis": diagnosis,
 					"parsed": parsed,
 					"longest": longest_paragraph
 				}
