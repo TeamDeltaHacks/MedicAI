@@ -7,6 +7,10 @@ import urllib
 import json as JSON
 from joblib import dump, load
 import re
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+from sklearn.decomposition import PCA
+import gc
+import pandas as pd
 
 import nltk
 nltk.download("stopwords")
@@ -90,14 +94,25 @@ def add():
 			longest_paragraph = longest_paragraph.replace("\n", " ")
 
 			cleaned = clean(longest_paragraph)
-			print(cleaned)
-
 			lemmatized = lemmatize(cleaned)
-			print(lemmatized)
+
+			# vectorizer = TfidfVectorizer(analyzer='word', stop_words='english', ngram_range=(1,3), max_df=0.75, use_idf=True, smooth_idf=True, max_features=1000)
+			# data = pd.DataFrame(data={'Report': [lemmatized]})
+			# tfIdfMat = vectorizer.fit_transform(data['Report'].tolist())
+			# feature_names = sorted(vectorizer.get_feature_names())
+			# print(feature_names)
+
+			# gc.collect()
+			# pca = PCA(n_components=0.95)
+			# tfIdfMat_reduced = pca.fit_transform(tfIdfMat.toarray())
+
+			# diagnosis = model.predict(tfIdfMat_reduced)
+			# print(diagnosis)
 
 			return JSON.dumps({
 				"type": "success",
 				"response": {
+					# "diagnosis": diagnosis,
 					"parsed": parsed,
 					"longest": longest_paragraph
 				}
