@@ -128,7 +128,7 @@ https://templatemo.com/tm-577-liberty-market
 							<div class="row">
 								<div class="col-lg-4">
 									<fieldset>
-											<input type="text" name="keyword" class="searchText" placeholder="Search..." autocomplete="on" oninput="prepareUpdateSnapshot()">
+											<input type="text" name="keyword" class="searchText" id="select-search" placeholder="Search..." autocomplete="on" oninput="prepareUpdateSnapshot()">
 									</fieldset>
 								</div>
 								<div class="col-lg-3">
@@ -211,7 +211,7 @@ https://templatemo.com/tm-577-liberty-market
 			}
 
 			const prepareUpdateSnapshot = () => {
-				updateSnapshot(savedSnapshot, document.querySelector("#select-patient").value, document.querySelector("#select-diagnosis").value, "");
+				updateSnapshot(savedSnapshot, document.querySelector("#select-patient").value, document.querySelector("#select-diagnosis").value, document.querySelector("#select-search").value);
 			}
 
 			const updateSnapshot = (snapshot, patient, diagnosis, searchTerm) => {
@@ -219,7 +219,8 @@ https://templatemo.com/tm-577-liberty-market
 				let patients = [];
 				for(let i = 0; i < snapshot.docs.length; i++) {
 					let data = snapshot.docs[i].data();
-					if((patient == "" || data.patient == patient) && (diagnosis == "" || data.result.diagnosis == diagnosis)) {
+					let joinedData = data.patient + " " + (new Date(data.date)).toLocaleDateString("en-US", { timeZone: "Atlantic/Reykjavik" }) + " " + data.diagnosis + " " + data.result.parsed.replaceAll("\n", " ");
+					if((patient == "" || data.patient == patient) && (diagnosis == "" || data.result.diagnosis == diagnosis) && (searchTerm == "" || joinedData.includes(searchTerm))) {
 						records.push({data: data, id: snapshot.docs[i].id});
 					}
 					patients.push(data.patient);
