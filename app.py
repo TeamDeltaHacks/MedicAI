@@ -6,6 +6,18 @@ import numpy as np
 import urllib
 import json as JSON
 from joblib import dump, load
+import re
+
+import nltk
+nltk.download("stopwords")
+nltk.download('punkt')
+nltk.download('wordnet')
+nltk.download('omw-1.4')
+
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+from nltk.tokenize import sent_tokenize
+from nltk.stem import WordNetLemmatizer
 
 model = load("LR.pkl")
 
@@ -19,8 +31,8 @@ def clean(text):
 	while i < len(words):
 		if words[i] in stopwords.words('english'):
 			words.pop(i)
-	else:
-		i += 1
+		else:
+			i += 1
 	
 	return ' '.join(map(str, words))
 
@@ -77,7 +89,11 @@ def add():
 
 			longest_paragraph = longest_paragraph.replace("\n", " ")
 
-			print(longest_paragraph)
+			cleaned = clean(longest_paragraph)
+			print(cleaned)
+
+			lemmatized = lemmatize(cleaned)
+			print(lemmatized)
 
 			return JSON.dumps({
 				"type": "success",
