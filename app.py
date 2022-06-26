@@ -115,12 +115,6 @@ def add():
 				diagnosis = model.predict(tfIdfMat_reduced)
 
 				ModelAdapter.apply(vectorizer, tfIdfMat, tfIdfMat_reduced)
-			
-			diagnosis = ""
-			if(("BiophysicalProfile-1" in parsed.replace(" ", "")) or (":Thereisasinglelive" in parsed.replace(" ", ""))):
-				diagnosis = "Reproductive"
-			if(("AdenosineNuclearScan" in parsed.replace(" ", "")) or (":Restingandstressimages" in parsed.replace(" ", ""))):
-				diagnosis = "Heart"
 
 			return JSON.dumps({
 				"type": "success",

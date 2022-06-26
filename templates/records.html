@@ -211,10 +211,10 @@ https://templatemo.com/tm-577-liberty-market
 			}
 
 			const prepareUpdateSnapshot = () => {
-				updateSnapshot(savedSnapshot, document.querySelector("#select-patient").value, document.querySelector("#select-diagnosis").value);
+				updateSnapshot(savedSnapshot, document.querySelector("#select-patient").value, document.querySelector("#select-diagnosis").value, "");
 			}
 
-			const updateSnapshot = (snapshot, patient, diagnosis) => {
+			const updateSnapshot = (snapshot, patient, diagnosis, searchTerm) => {
 				let records = [];
 				for(let i = 0; i < snapshot.docs.length; i++) {
 					let data = snapshot.docs[i].data();
