@@ -1,9 +1,12 @@
 # MedicAI
 Code for "Improving Clinical Efficiency and Reducing Medical Errors through NLP-enabled diagnosis of Health Conditions from Transcription Reports"
 
-[Research paper](https://github.com/CMEONE/MedicAI/blob/main/static/paper.pdf) 
-[Devpost Page](https://devpost.com/software/medicai-r2hsvu).
-[YouTube Demo] (https://www.youtube.com/watch?v=_GsxYAZyjnU&feature=emb_title&ab_channel=KabirRamzan)
+This site was built using [GitHub Pages](https://pages.github.com/).
+
+
+[Research paper](https://github.com/CMEONE/MedicAI/blob/main/static/paper.pdf). <br>
+[Devpost Page](https://devpost.com/software/medicai-r2hsvu).<br>
+[YouTube Demo] (https://www.youtube.com/watch?v=_GsxYAZyjnU&feature=emb_title&ab_channel=KabirRamzan).
 
 # Objective
 
