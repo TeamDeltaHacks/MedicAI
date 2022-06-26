@@ -1,2 +1,8 @@
 flask==1.1.2
 werkzeug==1.0.1
+Pillow==9.1.1
+packaging==21.3
+pytesseract==0.3.9
+pyparsing==2.4.5
+opencv-python==4.1.1.26
+numpy==1.19.5
