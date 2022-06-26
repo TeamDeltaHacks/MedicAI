@@ -9,6 +9,32 @@ from joblib import dump, load
 
 model = load("LR.pkl")
 
+def clean(text):
+	text = text.lower()
+	text = text.strip()
+	text = re.compile('[/(){}\[\]\|@,;]').sub(' ', text) 
+	text = re.compile('[^0-9a-z #+_]').sub('', text) 
+	words = text.split()
+	i = 0 
+	while i < len(words):
+		if words[i] in stopwords.words('english'):
+			words.pop(i)
+	else:
+		i += 1
+	
+	return ' '.join(map(str, words))
+
+def lemmatize(text):
+	wordlist=[]
+	lemmatizer = WordNetLemmatizer() 
+	sentences=sent_tokenize(text)
+	
+	for sentence in sentences:
+		words=word_tokenize(sentence)
+		for word in words:
+			wordlist.append(lemmatizer.lemmatize(word))	
+	return ' '.join(wordlist)
+
 app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
