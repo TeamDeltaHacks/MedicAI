@@ -366,6 +366,9 @@ https://templatemo.com/tm-577-liberty-market
 			auth.onAuthStateChanged(function(user) {
 				credentials = user;
 				if(credentials == null) {
+					if(resolvedCredentials == true) {
+						window.location.href = "/";
+					}
 					resolvedCredentials = true;
 				} else {
 					document.getElementById("nav-sign-in").remove();
