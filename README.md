@@ -1,8 +1,13 @@
 # MedicAI
-
 Code for "Improving Clinical Efficiency and Reducing Medical Errors through NLP-enabled diagnosis of Health Conditions from Transcription Reports"
 
-GitHub repository for [research paper](https://github.com/CMEONE/MedicAI/blob/main/static/paper.pdf) and [web application](https://devpost.com/software/medicai-r2hsvu).
+[Research paper](https://github.com/CMEONE/MedicAI/blob/main/static/paper.pdf) 
+[Devpost Page](https://devpost.com/software/medicai-r2hsvu).
+[YouTube Demo] (https://www.youtube.com/watch?v=_GsxYAZyjnU&feature=emb_title&ab_channel=KabirRamzan)
+
+# Objective
+
+In an effort to streamline the process for medical practitioners and improve clinical care for patients within the hospital, we developed various machine learning and deep learning based architectures to classify healthcare conditions in a transcription note, ultimately reducing misdiagnosis rates and alleviating the burden for overloaded hospitals. Furthermore, to increase the accessibility for hospitals world-wide, our models are packaged into an efficient and accurate AI-enabled medical app.
 
 ## Dependencies
 You may need to use `pip install` to install the dependencies on each line of `requirements.txt` (for example, `pip install flask==1.1.2`). This list is not comprehensive and does not include many of the modules, which will need to be installed as errors arise with running (see below section).
