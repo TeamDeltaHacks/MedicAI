@@ -1,6 +1,6 @@
 # MedicAI
 
-Revolutionizing the medical field using Machine Learning
+Revolutionizing Medical Diagnosis with NLP
 
 
 ## Dependencies
