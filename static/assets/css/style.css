@@ -56,6 +56,20 @@ figure, header, nav, section, article, aside, footer, figcaption {
 	margin-bottom: 0;
 }
 
+.record-image {
+	border-radius: 10px;
+	cursor: pointer;
+	transition: transform 0.2s ease-in-out;
+}
+
+.record-image:hover {
+	transform: scale(1.02);
+}
+
+.record-image:active {
+	transform: scale(0.98);
+}
+
 .clearfix:after {
 	content: ".";
 	display: block;
