@@ -198,6 +198,9 @@ https://templatemo.com/tm-577-liberty-market
 							});
 						}
 					});
+				dbRef.doc("{{record}}").get().catch((err) => {
+					window.location.href = "/records";
+				});
 			}
 		</script>
 
