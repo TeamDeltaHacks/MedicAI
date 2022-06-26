@@ -6,6 +6,8 @@ Revolutionizing the medical field using Machine Learning
 ## Dependencies
 You may need to use `pip install` to install the dependencies on each line of `requirements.txt` (for example, `pip install flask==1.1.2`). This list is not comprehensive and does not include many of the modules, which will need to be installed as errors arise with running (see below section).
 
+You will also need to install Tesseract, more details can be found online or at the [Tesseract User Manual](https://github.com/tesseract-ocr/tessdoc).
+
 ## Running
 To run the code, open a terminal and navigate to the root directory of this repository. Then, run the following commands:
 ```bash
