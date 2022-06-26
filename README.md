@@ -1,5 +1,5 @@
 # MedicAI
-Code for "Improving Clinical Efficiency and Reducing Medical Errors through NLP-enabled diagnosis of Health Conditions from Transcription Reports"
+Code for _**"Improving Clinical Efficiency and Reducing Medical Errors through NLP-enabled diagnosis of Health Conditions from Transcription Reports"**_
 
 **More Information:** <br>
 [Research paper](https://github.com/CMEONE/MedicAI/blob/main/static/paper.pdf)<br>
