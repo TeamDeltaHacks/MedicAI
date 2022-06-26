@@ -68,10 +68,22 @@ def add():
 			custom_config = r'--oem 3 --psm 6'
 			parsed = pytesseract.image_to_string(image, config=custom_config)
 
+			paragraphs = parsed.split("\n\n")
+			longest_paragraph = paragraphs[0]
+
+			for i in range(1, len(paragraphs)):
+				if(len(longest_paragraph) < len(paragraphs[i])):
+					longest_paragraph = paragraphs[i]
+
+			longest_paragraph = longest_paragraph.replace("\n", " ")
+
+			print(longest_paragraph)
+
 			return JSON.dumps({
 				"type": "success",
 				"response": {
-					"parsed": parsed
+					"parsed": parsed,
+					"longest": longest_paragraph
 				}
 			})
 		except Exception as e:
