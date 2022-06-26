@@ -172,7 +172,7 @@ https://templatemo.com/tm-577-liberty-market
 					.onSnapshot((snapshot) => {
 						let data = snapshot.data();
 						let random = Math.random();
-						document.querySelector("#record-title").innerHTML = "Diagnosis: N/A";
+						document.querySelector("#record-title").innerHTML = `Diagnosis: ${data.result.diagnosis || "N/A"}`;
 						document.querySelector("#record-description").innerHTML = data.result.parsed.replaceAll("\n\n", `<DOUBLE_NEWLINES_${random}>`).replaceAll("\n", " ").replaceAll(`<DOUBLE_NEWLINES_${random}>`, "\n");
 						document.querySelector("#record-patient").innerHTML = data.patient;
 						document.querySelector("#record-date").innerHTML = (new Date(data.date)).toLocaleDateString("en-US", { timeZone: "Atlantic/Reykjavik" });
