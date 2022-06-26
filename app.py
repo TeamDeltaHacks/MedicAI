@@ -9,6 +9,7 @@ from joblib import dump, load
 import re
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.decomposition import PCA
+import modeladapter as ModelAdapter
 import gc
 import pandas as pd
 
@@ -96,17 +97,24 @@ def add():
 			cleaned = clean(longest_paragraph)
 			lemmatized = lemmatize(cleaned)
 
-			# vectorizer = TfidfVectorizer(analyzer='word', stop_words='english', ngram_range=(1,3), max_df=0.75, use_idf=True, smooth_idf=True, max_features=1000)
-			# data = pd.DataFrame(data={'Report': [lemmatized]})
-			# tfIdfMat = vectorizer.fit_transform(data['Report'].tolist())
-			# feature_names = sorted(vectorizer.get_feature_names())
-			# print(feature_names)
+			diagnosis = ""
 
-			# gc.collect()
-			# pca = PCA(n_components=0.95)
-			# tfIdfMat_reduced = pca.fit_transform(tfIdfMat.toarray())
+			if(ModelAdapter.loaded()):
+				diagnosis = ModelAdapter.predict(model, parsed, lemmatized)
+			else:
+				ModelAdapter.initialize()
+				vectorizer = TfidfVectorizer(analyzer='word', stop_words='english', ngram_range=(1,3), max_df=0.75, use_idf=True, smooth_idf=True, max_features=1000)
+				data = pd.DataFrame(data={'Report': [lemmatized]})
+				tfIdfMat = vectorizer.fit_transform(data['Report'].tolist())
+				feature_names = sorted(vectorizer.get_feature_names())
+				print(feature_names)
 
-			# diagnosis = model.predict(tfIdfMat_reduced)
+				gc.collect()
+				pca = PCA(n_components=0.95)
+				tfIdfMat_reduced = pca.fit_transform(tfIdfMat.toarray())
+				diagnosis = model.predict(tfIdfMat_reduced)
+
+				ModelAdapter.apply(vectorizer, tfIdfMat, tfIdfMat_reduced)
 			
 			diagnosis = ""
 			if(("BiophysicalProfile-1" in parsed.replace(" ", "")) or (":Thereisasinglelive" in parsed.replace(" ", ""))):

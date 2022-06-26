@@ -124,23 +124,23 @@ https://templatemo.com/tm-577-liberty-market
 						</div>
 					</div>
 					<div class="col-lg-7">
-						<form id="search-form" name="gs" method="submit" role="search" action="#">
+						<form id="search-form" name="gs" method="submit" role="search" action="#" onsubmit="event.preventDefault();">
 							<div class="row">
 								<div class="col-lg-4">
 									<fieldset>
-											<input type="text" name="keyword" class="searchText" placeholder="Type Something..." autocomplete="on" required>
+											<input type="text" name="keyword" class="searchText" placeholder="Search..." autocomplete="on" oninput="prepareUpdateSnapshot()">
 									</fieldset>
 								</div>
 								<div class="col-lg-3">
 									<fieldset>
-											<select name="patient" class="form-select" id="chooseCategory" onchange="this.form.click()">
+											<select name="patient" class="form-select" id="select-patient" onchange="prepareUpdateSnapshot()">
 													<option value="" selected>All Patients</option>
 											</select>
 									</fieldset>
 								</div>
 								<div class="col-lg-3">
 									<fieldset>
-											<select name="diagnosis" class="form-select" id="chooseCategory" onchange="this.form.click()">
+											<select name="diagnosis" class="form-select" id="select-diagnosis" onchange="prepareUpdateSnapshot()">
 													<option value="" selected>All Diagnoses</option>
 													<option value="Brain">Brain</option>
 													<option value="Digestive">Digestive</option>
@@ -151,7 +151,7 @@ https://templatemo.com/tm-577-liberty-market
 								</div>
 								<div class="col-lg-2">												
 									<fieldset>
-											<button class="main-button">Search</button>
+											<button class="main-button" onclick="prepareUpdateSnapshot()">Search</button>
 									</fieldset>
 								</div>
 							</div>
@@ -178,13 +178,16 @@ https://templatemo.com/tm-577-liberty-market
 			let dbRef;
 			let dbUnsubscribe;
 
+			let savedSnapshot = {};
+
 			const authenticated = (user) => {
 				dbRef = db.collection("records");
 				dbUnsubscribe = dbRef
 					.where("uid", "==", user.uid)
 					.orderBy("createdAt")
 					.onSnapshot((snapshot) => {
-						updateSnapshot(snapshot, "", "");
+						savedSnapshot = snapshot;
+						prepareUpdateSnapshot();
 						resolvedCredentials = true;
 						if(windowLoaded && resolvedCredentials) {
 							$('#js-preloader').addClass('loaded');
@@ -205,6 +208,10 @@ https://templatemo.com/tm-577-liberty-market
 							});
 						}
 					});
+			}
+
+			const prepareUpdateSnapshot = () => {
+				updateSnapshot(savedSnapshot, document.querySelector("#select-patient").value, document.querySelector("#select-diagnosis").value);
 			}
 
 			const updateSnapshot = (snapshot, patient, diagnosis) => {
