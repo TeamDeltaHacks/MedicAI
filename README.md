@@ -12,9 +12,9 @@ You will also need to install Tesseract, more details can be found online or at 
 To run the code, open a terminal and navigate to the root directory of this repository. Then, run the following commands:
 ```bash
 export FLASK_APP=app.py
-flask run
+flask run -h localhost -p 5001
 ```
 
 As import errors arise, you may need to install more modules by using `pip install MODULE_NAME_HERE`.
 
-Finally, once the program runs without errors, navigate to `localhost:5000` in your browser. Enjoy!
+Finally, once the program runs without errors, navigate to `localhost:5001` in your browser. Enjoy!

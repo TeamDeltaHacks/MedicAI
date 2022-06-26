@@ -216,12 +216,29 @@ https://templatemo.com/tm-577-liberty-market
 
 			const updateSnapshot = (snapshot, patient, diagnosis, searchTerm) => {
 				let records = [];
+				let patients = [];
 				for(let i = 0; i < snapshot.docs.length; i++) {
 					let data = snapshot.docs[i].data();
 					if((patient == "" || data.patient == patient) && (diagnosis == "" || data.result.diagnosis == diagnosis)) {
 						records.push({data: data, id: snapshot.docs[i].id});
 					}
+					patients.push(data.patient);
 				}
+				patients = [...new Set(patients)];
+				let patientOptions = [];
+				if(patient == "") {
+					patientOptions.push(`<option value="" selected>All Patients</option>`);
+				} else {
+					patientOptions.push(`<option value="">All Patients</option>`);
+				}
+				for(let i = 0; i < patients.length; i++) {
+					if(patients[i] == patient) {
+						patientOptions.push(`<option value="${patients[i]}" selected>${patients[i]}</option>`);
+					} else {
+						patientOptions.push(`<option value="${patients[i]}">${patients[i]}</option>`);
+					}
+				}
+				document.querySelector("#select-patient").innerHTML = patientOptions.join("");
 				document.querySelector("#items-container").innerHTML = records.map((record) => {
 					data = record.data;
 
