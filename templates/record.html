@@ -125,7 +125,7 @@ https://templatemo.com/tm-577-liberty-market
 					</div>
 					<div class="col-lg-6">
 						<div class="left-image">
-							<img src="" alt="" style="border-radius: 10px;" id="record-image">
+							<img src="" alt="" id="record-image" class="record-image">
 						</div>
 					</div>
 					<div class="col-lg-6 align-self-center">
@@ -172,11 +172,16 @@ https://templatemo.com/tm-577-liberty-market
 					.onSnapshot((snapshot) => {
 						let data = snapshot.data();
 						let random = Math.random();
+						document.querySelector("#record-image").src = data.report;
 						document.querySelector("#record-title").innerHTML = `Diagnosis: ${data.result.diagnosis || "N/A"}`;
-						document.querySelector("#record-description").innerHTML = data.result.parsed.replaceAll("\n\n", `<DOUBLE_NEWLINES_${random}>`).replaceAll("\n", " ").replaceAll(`<DOUBLE_NEWLINES_${random}>`, "\n");
 						document.querySelector("#record-patient").innerHTML = data.patient;
 						document.querySelector("#record-date").innerHTML = (new Date(data.date)).toLocaleDateString("en-US", { timeZone: "Atlantic/Reykjavik" });
-						document.querySelector("#record-image").src = data.report;
+
+						let description = data.result.parsed.replaceAll("\n\n", `<DOUBLE_NEWLINES_${random}>`).replaceAll("\n", " ").replaceAll(`<DOUBLE_NEWLINES_${random}>`, "\n");
+						if(data.result.longest != null) {
+							description = description.replace(data.result.longest, `<b>${data.result.longest}</b>`);
+						}
+						document.querySelector("#record-description").innerHTML = description;
 
 						resolvedCredentials = true;
 						if(windowLoaded && resolvedCredentials) {
