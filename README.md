@@ -1,6 +1,8 @@
 # MedicAI
 
-Revolutionizing Medical Diagnosis with NLP
+Code for "Improving Clinical Efficiency and Reducing Medical Errors through NLP-enabled diagnosis of Health Conditions from Transcription Reports"
+
+Web App Revolutionizing Medical Diagnosis with NLP
 
 
 ## Dependencies
