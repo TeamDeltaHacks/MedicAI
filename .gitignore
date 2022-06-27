@@ -5,3 +5,6 @@
 mo**
 build/
 dist/
+
+# virtual environment
+**/.venv
