@@ -4,7 +4,7 @@ Code for _**"Improving Clinical Efficiency and Reducing Medical Errors through N
 ## Awards/Resources
 
 **Top 3 @ STEMist education hacks** <br>
-**Published in 6.14 Impact Factor International Journal**
+**Pending Publication in a 6.14 IF International Journal**
 
 **More Information:** <br>
 [Research paper](https://github.com/CMEONE/MedicAI/blob/main/static/paper.pdf)<br>
