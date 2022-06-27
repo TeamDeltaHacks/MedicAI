@@ -1,9 +1,10 @@
 # MedicAI
 Code for _**"Improving Clinical Efficiency and Reducing Medical Errors through NLP-enabled diagnosis of Health Conditions from Transcription Reports"**_
+Top 3 @ STEMist education hacks
+Pending Approval at Journal (6.14 Impact Factor)
 
 **More Information:** <br>
 [Research paper](https://github.com/CMEONE/MedicAI/blob/main/static/paper.pdf)<br>
-[Devpost Page](https://devpost.com/software/medicai-r2hsvu)<br>
 [YouTube Demo](https://www.youtube.com/watch?v=_GsxYAZyjnU&feature=emb_title&ab_channel=KabirRamzan)
 
 # Objective
