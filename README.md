@@ -23,7 +23,12 @@ In terms of the web technologies we used, our front-end was built with HTML, CSS
 ![Screen Shot 2022-06-26 at 5 56 31 PM](https://user-images.githubusercontent.com/56781484/175841744-cc1922ea-7824-48d0-b54e-e0c34ebb64b5.png)  <br>
 
 ## Dependencies
+
+### Python 2
 You may need to use `pip install` to install the dependencies on each line of `requirements.txt` (for example, `pip install flask==1.1.2`). This list is not comprehensive and does not include many of the modules, which will need to be installed as errors arise with running (see below section).
+
+### Python 3
+Instead of using `pip install`, you may need to use `pip3 install` to install the dependencies on each line of `requirements.txt` (for example, `pip3 install flask==1.1.2`). Alternatively, you can use `pip3 install -r requirements.txt` to install all of the dependencies at once.
 
 You will also need to install Tesseract, more details can be found online or at the [Tesseract User Manual](https://github.com/tesseract-ocr/tessdoc).
 
