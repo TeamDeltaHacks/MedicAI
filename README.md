@@ -1,5 +1,5 @@
 # MedicAI
-Code for _**"Improving Clinical Efficiency and Reducing Medical Errors through NLP-enabled diagnosis of Health Conditions from Transcription Reports"**_ <br>
+Code for _**"[Improving Clinical Efficiency and Reducing Medical Errors through NLP-enabled diagnosis of Health Conditions from Transcription Reports](https://arxiv.org/abs/2206.13516)"**_ <br>
 
 ## Awards/Resources
 
@@ -7,7 +7,7 @@ Code for _**"Improving Clinical Efficiency and Reducing Medical Errors through N
 **Pending Publication in a 6.14 IF International Journal**
 
 **More Information:** <br>
-[Research paper](https://github.com/CMEONE/MedicAI/blob/main/static/paper.pdf)<br>
+[Research paper](https://arxiv.org/pdf/2206.13516.pdf)<br>
 [YouTube Demo](https://www.youtube.com/watch?v=_GsxYAZyjnU&feature=emb_title&ab_channel=KabirRamzan)
 
 ## Project Objective
