@@ -4,7 +4,7 @@ Code for _**"[Improving Clinical Efficiency and Reducing Medical Errors through 
 ## Awards/Resources
 
 **Top 3 @ STEMist education hacks** <br>
-**Pending Publication in a 6.14 IF International Journal**
+<!-- **Pending Publication in a 6.14 IF International Journal** -->
 
 **More Information:** <br>
 [Research paper](https://arxiv.org/pdf/2206.13516.pdf)<br>
